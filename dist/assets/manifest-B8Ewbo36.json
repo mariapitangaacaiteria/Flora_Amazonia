@@ -1,0 +1,29 @@
+{
+  "name": "Floramazonia - Acai e Gelatos da Amazonia",
+  "short_name": "Floramazonia",
+  "description": "Descubra o sabor autentico da Amazonia com nosso acai premium, gelatos e sorbets 100% naturais.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7B2D8E",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

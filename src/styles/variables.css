@@ -1,0 +1,135 @@
+/* =====================================================
+   VARI�VEIS CSS - FLORAMAZONIA
+   ===================================================== */
+
+:root {
+    /* ===== CORES PRINCIPAIS ===== */
+    --color-primary: #7B2D8E;          /* Roxo principal */
+    --color-primary-dark: #5A1F6A;     /* Roxo escuro */
+    --color-primary-light: #9B4DAE;    /* Roxo claro */
+    
+    --color-secondary: #F5A623;        /* Laranja/Dourado */
+    --color-secondary-dark: #D4891A;   /* Laranja escuro */
+    --color-secondary-light: #FFBE4D;  /* Laranja claro */
+    
+    --color-accent: #2ECC71;           /* Verde amaz�nico */
+    --color-accent-dark: #27AE60;      /* Verde escuro */
+    --color-accent-light: #58D68D;     /* Verde claro */
+
+    /* ===== CORES NEUTRAS ===== */
+    --color-white: #FFFFFF;
+    --color-black: #1A1A1A;
+    --color-gray-100: #F8F9FA;
+    --color-gray-200: #E9ECEF;
+    --color-gray-300: #DEE2E6;
+    --color-gray-400: #CED4DA;
+    --color-gray-500: #ADB5BD;
+    --color-gray-600: #6C757D;
+    --color-gray-700: #495057;
+    --color-gray-800: #343A40;
+    --color-gray-900: #212529;
+
+    /* ===== CORES TEMÁTICAS NATUREZA ===== */
+    --color-nature-dark: #1a3a2a;      /* Verde escuro profundo */
+    --color-nature-medium: #1a5a3a;    /* Verde floresta */
+    --color-nature-text: #5a6a5a;      /* Verde-cinza texto */
+    --color-nature-muted: #6a7a6a;     /* Verde-cinza suave */
+    --color-nature-accent: #e07b2e;    /* Cobre/Laranja natural */
+
+    /* ===== CORES DE TEXTO ===== */
+    --text-primary: #1A1A1A;
+    --text-secondary: #6C757D;
+    --text-light: #FFFFFF;
+    --text-muted: #ADB5BD;
+
+    /* ===== CORES DE FUNDO ===== */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --bg-dark: #1A1A1A;
+    --bg-purple: #7B2D8E;
+    --bg-orange: #F5A623;
+
+    /* ===== TIPOGRAFIA ===== */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Poppins', 'Inter', sans-serif;
+    
+    /* Tamanhos de fonte */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+    --font-size-7xl: 4.5rem;
+
+    /* Pesos de fonte */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Altura de linha */
+    --line-height-tight: 1.1;
+    --line-height-snug: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 2;
+
+    /* ===== ESPA�AMENTOS ===== */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+    --spacing-5xl: 8rem;
+
+    /* ===== LAYOUT ===== */
+    --container-max-width: 1280px;
+    --container-padding: 1rem;
+    --section-padding-y: 5rem;
+    
+    /* Header */
+    --header-height: 80px;
+    --header-height-mobile: 64px;
+
+    /* ===== BORDAS ===== */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 0.75rem;
+    --border-radius-xl: 1rem;
+    --border-radius-2xl: 1.5rem;
+    --border-radius-full: 9999px;
+
+    /* ===== SOMBRAS ===== */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-purple: 0 10px 40px rgba(123, 45, 142, 0.3);
+    --shadow-orange: 0 10px 40px rgba(245, 166, 35, 0.3);
+
+    /* ===== TRANSI��ES ===== */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+    --transition-slower: 700ms ease;
+
+    /* ===== Z-INDEX ===== */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+}

@@ -1,0 +1,18 @@
+/* TEAM */
+Site: Floramazonia - Acai e Gelatos da Amazonia
+Location: Fortaleza, Ceara, Brasil
+Contact: contato [at] floramazonia.com.br
+WhatsApp: +55 85 8777-5898
+Instagram: @floramazoniabr
+Facebook: /Natuzbr
+
+/* SITE */
+Last update: 2026/01/27
+Language: Portuguese (Brazil)
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: BEM Methodology
+Software: Visual Studio Code, Vite
+
+/* THANKS */
+A todos os nossos clientes e parceiros que acreditam
+no poder da natureza amazonica!

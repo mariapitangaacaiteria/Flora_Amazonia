@@ -1,0 +1,117 @@
+/* =====================================================
+   CSS RESET - FLORAMAZONIA
+   ===================================================== */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Set shorter line heights on headings */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+/* A elements */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove button styling */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Text wrap for paragraphs */
+p {
+    text-wrap: pretty;
+}
+
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* Remove all animations for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}

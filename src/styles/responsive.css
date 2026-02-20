@@ -1,0 +1,24 @@
+/* =====================================================
+   RESPONSIVE CSS - FLORAMAZONIA
+   Media queries e ajustes responsivos
+   ===================================================== */
+
+/* ===== CONTAINER PADDING ===== */
+@media (min-width: 640px) {
+    :root {
+        --container-padding: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --container-padding: 2rem;
+    }
+}
+
+/* ===== SECTION PADDING ===== */
+@media (max-width: 767px) {
+    :root {
+        --section-padding-y: 3rem;
+    }
+}

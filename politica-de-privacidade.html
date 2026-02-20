@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Política de Privacidade | Floramazônia</title>
+    <meta name="description" content="Política de Privacidade da Floramazônia: saiba como tratamos seus dados pessoais e seus direitos conforme a LGPD.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo%20footer-BkChbuVV.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo%20footer-BkChbuVV.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/styles/variables.css">
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/components.css">
+    <link rel="stylesheet" href="./src/styles/responsive.css">
+    <link rel="stylesheet" href="./src/styles/legal.css">
+
+    <link rel="stylesheet" href="./src/components/common/Header/Header.css">
+    <link rel="stylesheet" href="./src/components/sections/Footer/Footer.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header header--legal" id="header">
+        <div class="header__container">
+            <a href="./index.html" class="header__logo" aria-label="Floramazônia - Voltar ao início">
+                <img src="./src/assets/images/Prancheta 2.png" alt="Floramazônia" class="header__logo-img">
+            </a>
+
+            <nav class="header__nav" id="header-nav" aria-label="Navegação principal">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="./index.html#hero" class="header__nav-link">Início</a></li>
+                    <li class="header__nav-item"><a href="./index.html#sobre" class="header__nav-link">Sobre</a></li>
+                    <li class="header__nav-item"><a href="./index.html#beneficios" class="header__nav-link">Benefícios</a></li>
+                    <li class="header__nav-item header__nav-item--has-dropdown">
+                        <a href="./index.html#produtos" class="header__nav-link header__nav-link--trigger">Produtos</a>
+                        <ul class="header__dropdown" aria-label="Submenu Produtos">
+                            <li class="header__dropdown-item"><a href="./index.html#produtos" class="header__dropdown-link">Ver Produtos (resumo)</a></li>
+                            <li class="header__dropdown-item"><a href="./catalogo.html" class="header__dropdown-link">Catálogo Completo</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item"><a href="./index.html#depoimentos" class="header__nav-link">Depoimentos</a></li>
+                    <li class="header__nav-item"><a href="./index.html#faq" class="header__nav-link">FAQ</a></li>
+                    <li class="header__nav-item"><a href="./index.html#contato" class="header__nav-link">Contato</a></li>
+                </ul>
+            </nav>
+
+            <a href="./index.html#contato" class="header__cta">
+                <svg class="header__cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span>Fale Conosco</span>
+            </a>
+
+            <button class="header__mobile-toggle" id="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="header__mobile-toggle-bar"></span>
+                <span class="header__mobile-toggle-bar"></span>
+                <span class="header__mobile-toggle-bar"></span>
+            </button>
+        </div>
+
+        <div class="header__mobile-menu" id="mobile-menu" aria-hidden="true">
+            <nav class="header__mobile-nav" aria-label="Navegação mobile">
+                <ul class="header__mobile-nav-list">
+                    <li class="header__mobile-nav-item"><a href="./index.html#hero" class="header__mobile-nav-link">Início</a></li>
+                    <li class="header__mobile-nav-item"><a href="./index.html#sobre" class="header__mobile-nav-link">Sobre</a></li>
+                    <li class="header__mobile-nav-item"><a href="./index.html#beneficios" class="header__mobile-nav-link">Benefícios</a></li>
+                    <li class="header__mobile-nav-item header__mobile-nav-item--has-submenu">
+                        <span class="header__mobile-nav-label">Produtos</span>
+                        <ul class="header__mobile-submenu">
+                            <li><a href="./index.html#produtos" class="header__mobile-nav-link">Ver Produtos (resumo)</a></li>
+                            <li><a href="./catalogo.html" class="header__mobile-nav-link">Catálogo Completo</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__mobile-nav-item"><a href="./index.html#depoimentos" class="header__mobile-nav-link">Depoimentos</a></li>
+                    <li class="header__mobile-nav-item"><a href="./index.html#faq" class="header__mobile-nav-link">FAQ</a></li>
+                    <li class="header__mobile-nav-item"><a href="./index.html#contato" class="header__mobile-nav-link">Contato</a></li>
+                </ul>
+                <a href="./index.html#contato" class="header__mobile-cta">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    <span>Fale Conosco</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="legal-page">
+        <div class="legal-page__container">
+            <span class="legal-page__eyebrow">Floramazônia</span>
+            <h1 class="legal-page__title">Política de Privacidade</h1>
+            <p class="legal-page__subtitle">
+                Transparência é um compromisso nosso. Este documento explica como coletamos, usamos e protegemos seus dados pessoais.
+            </p>
+            <div class="legal-page__meta">
+                <span>Última atualização: 10 de fevereiro de 2026</span>
+                <span>Controladora: Floramazônia Açaí & Gelatos</span>
+            </div>
+
+            <section class="legal-page__section">
+                <h2>1. Quem somos</h2>
+                <p>
+                    A Floramazônia é uma distribuidora de açaí premium, gelatos e sorbets naturais. Atuamos com foco em qualidade e
+                    responsabilidade, respeitando as normas da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
+                </p>
+                <p>
+                    Endereço: R. Padre Ibiapina, 1680 - Farias Brito, Fortaleza - CE, 60010-725.
+                </p>
+                <p>
+                    Se precisar falar conosco sobre privacidade, utilize o contato: <strong>contato@floramazonia.com.br</strong> ou
+                    WhatsApp <strong>(85) 8777-5898</strong>.
+                </p>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>2. Encarregado pelo tratamento de dados (LGPD)</h2>
+                <p>
+                    Nosso encarregado (DPO) pode ser contatado para esclarecer duvidas sobre o tratamento de dados pessoais,
+                    solicitudes e exercicio de direitos previstos na LGPD.
+                </p>
+                <p>
+                    E-mail do encarregado: <strong>contato@floramazonia.com.br</strong><br>
+                    WhatsApp: <strong>(85) 8777-5898</strong><br>
+                    Endereco: R. Padre Ibiapina, 1680 - Farias Brito, Fortaleza - CE, 60010-725.
+                </p>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>2. Dados que coletamos</h2>
+                <h3>2.1 Dados fornecidos por você</h3>
+                <ul>
+                    <li>Nome, telefone e mensagens enviadas via formulário de contato ou WhatsApp.</li>
+                    <li>Informações de interesse em produtos, revenda ou compras em atacado.</li>
+                </ul>
+                <h3>2.2 Dados coletados automaticamente</h3>
+                <ul>
+                    <li>Endereço IP, dispositivo, navegador e páginas acessadas.</li>
+                    <li>Cookies necessários para desempenho, segurança e métricas.</li>
+                </ul>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>3. Como usamos seus dados</h2>
+                <ul>
+                    <li>Responder solicitações e dúvidas sobre produtos.</li>
+                    <li>Enviar propostas comerciais, catálogos ou informações solicitadas.</li>
+                    <li>Melhorar a experiência no site e medir desempenho de campanhas.</li>
+                    <li>Cumprir obrigações legais e regulatórias.</li>
+                </ul>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>4. Bases legais</h2>
+                <p>Tratamos seus dados com fundamento nas seguintes bases legais:</p>
+                <ul>
+                    <li>Execução de contrato ou procedimentos preliminares (art. 7º, V, LGPD).</li>
+                    <li>Consentimento (art. 7º, I, LGPD), quando aplicável.</li>
+                    <li>Legítimo interesse (art. 7º, IX, LGPD) para comunicação e melhoria de serviços.</li>
+                </ul>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>5. Compartilhamento de dados</h2>
+                <p>
+                    Seus dados podem ser compartilhados apenas quando necessário com parceiros de tecnologia, provedores de hospedagem,
+                    ferramentas de analytics e transportadoras (quando aplicável). Sempre buscamos fornecedores alinhados à LGPD.
+                </p>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>6. Cookies e tecnologias similares</h2>
+                <p>
+                    Utilizamos cookies para entender preferências, medir performance e oferecer uma navegação mais eficiente. Você pode
+                    ajustar as permissões no seu navegador a qualquer momento.
+                </p>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>7. Segurança e armazenamento</h2>
+                <p>
+                    Adotamos medidas técnicas e organizacionais para proteger seus dados contra acessos não autorizados, perdas e usos
+                    indevidos. O armazenamento ocorre pelo tempo necessário para cumprir as finalidades descritas.
+                </p>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>8. Seus direitos</h2>
+                <p>Você tem direito a:</p>
+                <ul>
+                    <li>Confirmar a existência de tratamento de dados.</li>
+                    <li>Acessar, corrigir ou atualizar seus dados pessoais.</li>
+                    <li>Solicitar anonimização, bloqueio ou exclusão quando aplicável.</li>
+                    <li>Revogar consentimentos e solicitar portabilidade.</li>
+                </ul>
+                <p>
+                    Para exercer seus direitos, entre em contato pelo e-mail <strong>contato@floramazonia.com.br</strong>.
+                </p>
+            </section>
+
+            <section class="legal-page__section">
+                <h2>9. Atualizações desta política</h2>
+                <p>
+                    Esta política pode ser alterada para refletir mudanças legais ou operacionais. Sempre publicaremos a versão mais
+                    recente nesta página.
+                </p>
+                <div class="legal-page__cta">
+                    <a href="./index.html">Voltar ao site principal</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer__background">
+            <img src="./src/assets/images/fundo-footer.webp" alt="" class="footer__background-image" loading="lazy">
+        </div>
+
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__logo-wrapper">
+                    <a href="./index.html#hero">
+                        <img src="./src/assets/images/logo footer.png" alt="Floramazônia" class="footer__logo">
+                    </a>
+                </div>
+
+                <nav class="footer__nav" aria-label="Navegação do rodapé">
+                    <ul class="footer__nav-list">
+                        <li><a href="./index.html#hero" class="footer__nav-link">Início</a></li>
+                        <li><a href="./index.html#sobre" class="footer__nav-link">Sobre</a></li>
+                        <li><a href="./index.html#beneficios" class="footer__nav-link">Benefícios</a></li>
+                        <li><a href="./index.html#produtos" class="footer__nav-link">Produtos</a></li>
+                        <li><a href="./index.html#depoimentos" class="footer__nav-link">Depoimentos</a></li>
+                        <li><a href="./index.html#faq" class="footer__nav-link">FAQ</a></li>
+                        <li><a href="./index.html#contato" class="footer__nav-link">Contato</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer__splash-wrapper">
+                    <img src="./src/assets/images/splash-açaí.png" alt="Splash de Açaí" class="footer__splash">
+                </div>
+            </div>
+
+            <div class="footer__divider"></div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2026 <a href="./index.html#hero">Floramazônia</a>. Todos os direitos reservados.
+                    <span class="footer__legal">
+                        <a href="./politica-de-privacidade.html">Política de Privacidade</a>
+                        <span class="footer__legal-sep">|</span>
+                        <a href="./termos-e-condicoes.html">Termos e Condições</a>
+                    </span>
+                </p>
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/floramazoniabr/" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/Natuzbr/?locale=pt_BR" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/558587775898" class="footer__social-link footer__social-link--whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileToggle.classList.toggle('active');
+                mobileToggle.setAttribute('aria-expanded', String(isOpen));
+                mobileMenu.classList.toggle('active', isOpen);
+                mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+                document.body.classList.toggle('menu-open', isOpen);
+            });
+        }
+    </script>
+</body>
+</html>

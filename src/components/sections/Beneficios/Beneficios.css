@@ -1,0 +1,187 @@
+﻿/* =====================================================
+   BENEFICIOS SECTION - FLORAMAZONIA
+   Secao de beneficios dos produtos
+   ===================================================== */
+
+.beneficios {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #f5f3f0 0%, #f9f7f4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== IMAGEM DECORATIVA ESQUERDA ===== */
+.beneficios__image-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.beneficios__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+}
+
+.beneficios__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== HEADER DA SECAO ===== */
+.beneficios__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.beneficios__tag {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-nature-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.beneficios__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
+    color: var(--color-nature-dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.beneficios__subtitle {
+    font-family: var(--font-primary);
+    font-size: 1.0625rem;
+    color: var(--color-nature-text);
+    line-height: 1.7;
+}
+
+/* ===== GRID DE CARDS ===== */
+.beneficios__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ===== CARD ===== */
+.beneficios__card {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.beneficios__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== ICONE ===== */
+.beneficios__icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.beneficios__icon {
+    width: 28px;
+    height: 28px;
+    color: var(--color-nature-medium);
+}
+
+/* ===== CONTEUDO DO CARD ===== */
+.beneficios__card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-nature-dark);
+    margin-bottom: 12px;
+}
+
+.beneficios__card-text {
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    color: var(--color-nature-muted);
+    line-height: 1.65;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1400px) {
+    .beneficios__image-left {
+        width: 200px;
+        left: -40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .beneficios__image-left {
+        width: 160px;
+        left: -60px;
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 1024px) {
+    .beneficios {
+        padding: 80px 0;
+    }
+
+    .beneficios__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .beneficios__image-left {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .beneficios {
+        padding: 60px 0;
+    }
+
+    .beneficios__header {
+        margin-bottom: 40px;
+    }
+
+    .beneficios__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .beneficios__card {
+        padding: 28px 24px;
+    }
+
+    .beneficios__icon-wrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .beneficios__icon {
+        width: 24px;
+        height: 24px;
+    }
+}

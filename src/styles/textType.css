@@ -1,0 +1,48 @@
+/* Text Type Animation Styles */
+
+.text-type {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.text-type__content {
+  display: inline;
+}
+
+.text-type__cursor {
+  display: inline-block;
+  width: auto;
+  height: 1em;
+  vertical-align: middle;
+  margin-left: 2px;
+  color: currentColor;
+  font-weight: inherit;
+  opacity: 1;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
+
+/* Hidden state for elements that should appear after animation */
+.localizacao--typing-mode .localizacao__tag,
+.localizacao--typing-mode .localizacao__text,
+.localizacao--typing-mode .localizacao__card,
+.localizacao--typing-mode .localizacao__map {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.localizacao--typing-complete .localizacao__tag,
+.localizacao--typing-complete .localizacao__text,
+.localizacao--typing-complete .localizacao__card,
+.localizacao--typing-complete .localizacao__map {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* fadeInUp definido em animations.css — não duplicar aqui */

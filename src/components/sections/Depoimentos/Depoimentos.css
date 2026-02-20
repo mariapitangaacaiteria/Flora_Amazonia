@@ -1,0 +1,348 @@
+/* =====================================================
+   DEPOIMENTOS - ESTILOS
+   ===================================================== */
+
+/* ===== BASE ===== */
+.depoimentos {
+    position: relative;
+    background-color: var(--color-white);
+    padding: 0;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== IMAGEM DECORATIVA (LINHA FLORAMAZONIA) ===== */
+.depoimentos__decoration {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: block;
+    line-height: 0;
+    overflow: hidden;
+    background-image: url('../../../assets/images/LINHA FLORAMAZONIA RODATETO.png');
+    background-repeat: repeat-x;
+    background-size: auto 50px;
+    background-position: center;
+    height: 50px;
+    z-index: 5;
+}
+
+.depoimentos__decoration--top {
+    top: 0;
+}
+
+.depoimentos__decoration--bottom {
+    bottom: 0;
+    transform: scaleY(-1);
+}
+
+.depoimentos__decoration-img {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .depoimentos__decoration {
+        background-size: auto 65px;
+        height: 65px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .depoimentos__decoration {
+        background-size: auto 80px;
+        height: 80px;
+    }
+}
+
+/* ===== ARARA AZUL - DECORAÇÃO INFERIOR DIREITA ===== */
+.depoimentos__arara {
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+    width: 160px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .depoimentos__arara {
+        bottom: 35px;
+        right: 0;
+        width: 240px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .depoimentos__arara {
+        bottom: 45px;
+        right: 0;
+        width: 300px;
+    }
+}
+
+/* ===== CONTEUDO PRINCIPAL ===== */
+.depoimentos__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #f8f4fc 0%, #fff 50%, #f8f4fc 100%);
+}
+
+/* ===== CONTAINER ===== */
+.depoimentos__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ===== HEADER DA SEÇÃO ===== */
+.depoimentos__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.depoimentos__tag {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+}
+
+.depoimentos__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.depoimentos__subtitle {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== CARROSSEL DE CARDS ===== */
+.depoimentos__grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 1rem 2rem;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+.depoimentos__carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    animation: scrollDepoimentos 25s linear infinite;
+}
+
+.depoimentos__carousel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollDepoimentos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 0.75rem));
+    }
+}
+
+/* ===== CARDS DE DEPOIMENTO ===== */
+.depoimentos__card {
+    flex-shrink: 0;
+    min-width: 320px;
+    max-width: 320px;
+    background: var(--color-white);
+    border-radius: var(--border-radius-2xl);
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .depoimentos__card {
+        min-width: 350px;
+        max-width: 350px;
+    }
+}
+
+.depoimentos__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(123, 45, 142, 0.15);
+}
+
+/* Aspas decorativas */
+.depoimentos__card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    opacity: 0.15;
+    line-height: 1;
+}
+
+/* ===== ESTRELAS DE AVALIAÇÃO ===== */
+.depoimentos__stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.depoimentos__star {
+    width: 18px;
+    height: 18px;
+    fill: #FFB800;
+}
+
+/* ===== TEXTO DO DEPOIMENTO ===== */
+.depoimentos__text {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* ===== AUTOR DO DEPOIMENTO ===== */
+.depoimentos__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.depoimentos__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+}
+
+.depoimentos__author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.depoimentos__author-name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.depoimentos__author-location {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-tertiary);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 767px) {
+    .depoimentos__card {
+        min-width: 280px;
+        max-width: 280px;
+        padding: 1.25rem;
+    }
+
+    .depoimentos__text {
+        font-size: var(--font-size-sm);
+    }
+
+    .depoimentos__header {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* ===== CTA AVALIAÇÃO GOOGLE ===== */
+.depoimentos__cta-wrapper {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+    position: relative;
+    z-index: 5;
+}
+
+.depoimentos__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: var(--border-radius-full);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.35);
+}
+
+.depoimentos__cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.5);
+    filter: brightness(1.08);
+}
+
+.depoimentos__cta-btn svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+    .depoimentos__cta-wrapper {
+        margin-top: 1.5rem;
+    }
+
+    .depoimentos__cta-btn {
+        font-size: var(--font-size-sm);
+        padding: 0.75rem 1.5rem;
+    }
+}
+
