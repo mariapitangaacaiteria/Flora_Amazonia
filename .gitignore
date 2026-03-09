@@ -3,8 +3,8 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Build outputs
-# dist/  <- Vou fazer deploy da pasta dist para GitHub Pages
+# Build outputs (dist/ é temporário - GitHub Pages serve da raiz)
+dist/
 build/
 .vite/
 

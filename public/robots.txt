@@ -49,6 +49,9 @@ Allow: /
 User-agent: WhatsApp
 Allow: /
 
+# Sitemap
+Sitemap: https://floramazonia.com.br/sitemap.xml
+
 # Pinterest
 User-agent: Pinterest
 Allow: /
