@@ -102,8 +102,7 @@
             "height": 100
         },
         "image": [
-            "https://floramazonia.com.br/og-image.jpg",
-            "https://floramazonia.com.br/src/assets/images/galeria1.png"
+            "https://floramazonia.com.br/og-image.jpg"
         ],
         "telephone": "+55-85-8777-5898",
         "email": "contato@floramazonia.com.br",
@@ -340,9 +339,6 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#7B2D8E">
     
-    <!-- Anime.js CDN -->
-    <script src="https://animejs.org/lib/anime.min.js"></script>
-    
     <!-- GSAP & ScrollTrigger CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -370,10 +366,8 @@
 
 
 
-  <script type="module" crossorigin src="./assets/index-D-isOY2a.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DE-4SNC9.css">
-  <link rel="stylesheet" href="./assets/Localizacao.css">
-  <link rel="stylesheet" href="./assets/textType.css">
+  <script type="module" crossorigin src="./assets/index-DwhWpB7V.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B1mXWzge.css">
   <style>
     .depoimentos__card {
         height: 350px;
@@ -488,6 +482,52 @@
         .produtos__seo-hub { margin-top: 0.9rem; padding: 0.85rem 0.95rem; }
         .produtos__seo-link { font-size: 0.87rem; }
     }
+    @media (max-width: 767px) {
+        .hero {
+            min-height: 100svh;
+        }
+        .hero__container {
+            min-height: 100svh;
+            grid-template-rows: 1fr auto;
+            align-content: stretch;
+            justify-items: center;
+            gap: 1.25rem;
+            padding-top: calc(var(--header-height-mobile) + 0.75rem);
+            padding-bottom: 1rem;
+        }
+        .hero__content {
+            width: 100%;
+            max-width: 36rem;
+            margin: 0 auto;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .hero__badge,
+        .hero__subtitle,
+        .hero__actions,
+        .hero__stats {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero__actions {
+            width: 100%;
+            max-width: 21rem;
+            justify-content: center;
+        }
+        .hero__stats {
+            width: 100%;
+            justify-content: center;
+        }
+        .hero__stat {
+            min-width: 5.5rem;
+        }
+        .hero__image-wrapper {
+            align-self: end;
+        }
+    }
     .footer__developer {
         display: inline-block;
         margin-top: 0.4rem;
@@ -502,6 +542,14 @@
     .footer__developer a:hover {
         opacity: 1;
         text-decoration: underline;
+    }
+    /* Desativa animacoes legadas para evitar conflito com o novo pipeline GSAP */
+    .hero__scroll-indicator,
+    .hero__scroll-wheel,
+    .sobre__badge,
+    .depoimentos__carousel-track,
+    .whatsapp-float__button {
+        animation: none !important;
     }
   </style>
 </head>
@@ -643,10 +691,10 @@
 
                     <!-- Titulo Principal -->
                     <h1 class="hero__title">
-                        <div class="focus-container" data-animation="products">
-                            <span class="focus-word">Açaí</span>
-                            <span class="focus-word">Gelato</span>
-                            <span class="focus-word">Sorbet</span>
+                        <div class="hero__title-rotating" data-animation="products">
+                            <span class="rotating-word">Açaí</span>
+                            <span class="rotating-word">Gelato</span>
+                            <span class="rotating-word">Sorbet</span>
                         </div>
                         <span class="hero__title-connector">100% Natural</span>
                         <span class="hero__title-highlight">da Amazônia</span>
@@ -660,7 +708,7 @@
 
                     <!-- Botoes CTA -->
                     <div class="hero__actions">
-                        <a href="#produtos" class="hero__btn hero__btn--primary">
+                        <a href="./catalogo.html" class="hero__btn hero__btn--primary">
                             <span>Ver Catálogo</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -726,7 +774,7 @@
                 <!-- Lado Esquerdo - Imagem -->
                 <div class="sobre__image-wrapper">
                     <img 
-                        src="./assets/sobre-section-image-BKqrvyj2.webp" 
+                        src="./src/assets/images/about-image.png" 
                         alt="Floramazônia - Distribuidora de Açaí, Gelatos, Sorbets e Produtos Mix" 
                         class="sobre__image"
                         loading="lazy"
@@ -765,29 +813,29 @@
                     <!-- Cards de Beneficios -->
                     <div class="sobre__features">
                         <div class="sobre__feature">
-                            <span class="sobre__feature-icon">âœ“</span>
+                            <span class="sobre__feature-icon">&#10003;</span>
                             <span class="sobre__feature-text">Açaí Premium em atacado e varejo</span>
                         </div>
                         <div class="sobre__feature">
-                            <span class="sobre__feature-icon">âœ“</span>
+                            <span class="sobre__feature-icon">&#10003;</span>
                             <span class="sobre__feature-text">Gelatos Artesanais - linha completa</span>
                         </div>
                         <div class="sobre__feature">
-                            <span class="sobre__feature-icon">âœ“</span>
+                            <span class="sobre__feature-icon">&#10003;</span>
                             <span class="sobre__feature-text">Sorbets Naturais 100% fruta</span>
                         </div>
                         <div class="sobre__feature">
-                            <span class="sobre__feature-icon">âœ“</span>
+                            <span class="sobre__feature-icon">&#10003;</span>
                             <span class="sobre__feature-text">Produtos Mix: coberturas, granolas e mais</span>
                         </div>
                         <div class="sobre__feature">
-                            <span class="sobre__feature-icon">âœ“</span>
+                            <span class="sobre__feature-icon">&#10003;</span>
                             <span class="sobre__feature-text">Entrega para Fortaleza e região metropolitana</span>
                         </div>
                     </div>
 
                     <!-- Botao CTA -->
-                    <a href="#" class="sobre__btn" data-whatsapp>
+                    <a href="./catalogo.html" class="sobre__btn">
                         Fazer Pedido / Solicitar Tabela
                     </a>
                 </div>
@@ -1053,6 +1101,32 @@
                             </li>
                             <li class="logoloop__item">
                                 <img src="./assets/sabor_da_terra_logo-2CB3FJiU.jpg" alt="Sabor da Terra" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                        </ul>
+                        <ul class="logoloop__list" role="list" aria-hidden="true">
+                            <li class="logoloop__item">
+                                <img src="./assets/alispec-logo-DLZ5RfL3.webp" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/doremus-logo.png" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/duporto-logo-rG5Xqs9m.png" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/fini_fini-logo-DJUt6U5N.png" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/lacta-logo-0e4KSr-P.webp" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/logo%20footer-BkChbuVV.png" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/logo_docile-CFwy_Ard.png" alt="" width="200" height="80" loading="eager" decoding="async">
+                            </li>
+                            <li class="logoloop__item">
+                                <img src="./assets/sabor_da_terra_logo-2CB3FJiU.jpg" alt="" width="200" height="80" loading="eager" decoding="async">
                             </li>
                         </ul>
                     </div>
@@ -1816,11 +1890,11 @@
         </section>
 
         <!-- ===== LOCALIZACAO ===== -->
-        <section class="localizacao localizacao--typing-mode" id="localizacao">
+        <section class="localizacao" id="localizacao">
             <div class="localizacao__container">
                 <div class="localizacao__content">
                     <span class="localizacao__tag">Onde Estamos</span>
-                    <h2 class="localizacao__title" data-text-type="Visite a Floramazonia em Fortaleza" data-typing-speed="40" data-pause-duration="3000" data-show-cursor="true"></h2>
+                    <h2 class="localizacao__title">Visite a Floramazonia em Fortaleza</h2>
                     <p class="localizacao__text">
                         Nossa loja esta pronta para receber voce com atendimento especializado e produtos sempre frescos.
                     </p>
@@ -1834,7 +1908,7 @@
                                 </svg>
                             </span>
                             <div>
-                                <p class="localizacao__label">Endereco</p>
+                                <p class="localizacao__label">Endereço</p>
                                 <p class="localizacao__value">R. Padre Ibiapina, 1680 - Farias Brito, Fortaleza - CE, 60010-725</p>
                             </div>
                         </div>
@@ -2109,200 +2183,6 @@
 
     <!-- ===== SCRIPTS ===== -->
     <script>
-        // Efeito de animação - Seção Sobre (ao chegar na seção)
-        document.addEventListener('DOMContentLoaded', () => {
-            const sobreSection = document.querySelector('.sobre');
-            let animated = false;
-
-            // Usar Intersection Observer para detectar quando a seção entra na viewport
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    // Animar apenas quando a seção entra na viewport e ainda não foi animada
-                    if (entry.isIntersecting && !animated) {
-                        animated = true;
-                        
-                        // Animar título
-                        const sobreTitle = document.querySelector('.sobre__title');
-                        if (sobreTitle) {
-                            const titleText = sobreTitle.textContent;
-                            sobreTitle.innerHTML = titleText
-                                .split(' ')
-                                .map((word, idx) => {
-                                    return `<span class="word-clip" style="display: inline-block; overflow: hidden;"><span class="word" style="display: inline-block; animation: titleSlide 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards; animation-delay: ${idx * 0.1}s;">${word}&nbsp;</span></span>`;
-                                })
-                                .join('');
-                            
-                            // Adicionar keyframes
-                            const style = document.createElement('style');
-                            style.textContent = `
-                                @keyframes titleSlide {
-                                    from {
-                                        transform: translateY(100%);
-                                        opacity: 0;
-                                    }
-                                    to {
-                                        transform: translateY(0);
-                                        opacity: 1;
-                                    }
-                                }
-                                @keyframes featureSlide {
-                                    from {
-                                        transform: translateX(-30px);
-                                        opacity: 0;
-                                    }
-                                    to {
-                                        transform: translateX(0);
-                                        opacity: 1;
-                                    }
-                                }
-                            `;
-                            document.head.appendChild(style);
-                        }
-
-                        // Animar cards de features com stagger
-                        const features = document.querySelectorAll('.sobre__feature');
-                        features.forEach((feature, idx) => {
-                            feature.style.animation = `featureSlide 0.5s ease-out forwards`;
-                            feature.style.animationDelay = `${0.3 + idx * 0.1}s`;
-                        });
-
-                        // Parar de observar após animar
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.2 // Dispara quando 20% da seção está visível
-            });
-
-            // Observar a seção Sobre
-            if (sobreSection) {
-                observer.observe(sobreSection);
-            }
-        });
-        
-        // Efeito ScrollReveal GSAP - Seção Beneficios
-        window.addEventListener('load', () => {
-            // Garantir que GSAP e ScrollTrigger estejam carregados
-            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-                console.error('GSAP ou ScrollTrigger não carregados');
-                return;
-            }
-            
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // ===== ANIMAR TITULO DA SECAO =====
-            const beneficiosTitle = document.querySelector('.beneficios__title');
-            
-            if (beneficiosTitle) {
-                // Dividir o texto em palavras e envolver em spans
-                const titleText = beneficiosTitle.textContent;
-                const words = titleText.split(/\s+/);
-                
-                beneficiosTitle.innerHTML = words
-                    .map(word => `<span class="gsap-word" style="display: inline-block; overflow: hidden;"><span class="gsap-word-inner" style="display: inline-block;">${word}&nbsp;</span></span>`)
-                    .join('');
-                
-                const wordElements = beneficiosTitle.querySelectorAll('.gsap-word-inner');
-                
-                // Definir estado inicial das palavras
-                gsap.set(wordElements, {
-                    opacity: 0.1,
-                    filter: 'blur(4px)'
-                });
-                
-                // Animar rotação do container
-                gsap.fromTo(
-                    beneficiosTitle,
-                    { transformOrigin: '0% 50%', rotate: 3 },
-                    {
-                        ease: 'none',
-                        rotate: 0,
-                        scrollTrigger: {
-                            trigger: beneficiosTitle,
-                            start: 'top bottom',
-                            end: 'center center',
-                            scrub: 1,
-                            markers: false
-                        }
-                    }
-                );
-                
-                // Animar opacity e blur das palavras com stagger
-                gsap.to(wordElements, {
-                    opacity: 1,
-                    filter: 'blur(0px)',
-                    stagger: 0.05,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: beneficiosTitle,
-                        start: 'top bottom',
-                        end: 'center center',
-                        scrub: 1,
-                        markers: false
-                    }
-                });
-            }
-            
-            // ===== ANIMAR CARDS DE BENEFÍCIOS =====
-            const beneficiosCards = document.querySelectorAll('.beneficios__card');
-            
-            beneficiosCards.forEach((card, index) => {
-                const cardTitle = card.querySelector('.beneficios__card-title');
-                
-                if (cardTitle) {
-                    // Dividir o texto do título do card em palavras
-                    const cardTitleText = cardTitle.textContent;
-                    const cardWords = cardTitleText.split(/\s+/);
-                    
-                    cardTitle.innerHTML = cardWords
-                        .map(word => `<span class="gsap-word" style="display: inline-block; overflow: hidden;"><span class="gsap-word-inner" style="display: inline-block;">${word}&nbsp;</span></span>`)
-                        .join('');
-                    
-                    const cardWordElements = cardTitle.querySelectorAll('.gsap-word-inner');
-                    
-                    // Definir estado inicial das palavras do card
-                    gsap.set(cardWordElements, {
-                        opacity: 0.1,
-                        filter: 'blur(4px)'
-                    });
-                    
-                    // Animar rotação do card
-                    gsap.fromTo(
-                        card,
-                        { transformOrigin: '0% 50%', rotate: 3 },
-                        {
-                            ease: 'none',
-                            rotate: 0,
-                            scrollTrigger: {
-                                trigger: card,
-                                start: 'top bottom',
-                                end: 'center 60%',
-                                scrub: 1,
-                                markers: false
-                            }
-                        }
-                    );
-                    
-                    // Animar opacity e blur das palavras do título do card com stagger
-                    gsap.to(cardWordElements, {
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        stagger: 0.05,
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top bottom',
-                            end: 'center 60%',
-                            scrub: 1,
-                            markers: false
-                        }
-                    });
-                }
-            });
-        });
-        
-        // Atualizar link ativo no header conforme o usuário navega
-        // Destacar automaticamente depoimentos com 75+ caracteres
         document.addEventListener('DOMContentLoaded', () => {
             const LIMITE_DESTAQUE_DEPOIMENTO = 75;
             const depoimentosCards = document.querySelectorAll('.depoimentos__card');
@@ -2316,88 +2196,425 @@
                     card.classList.add('depoimentos__card--destaque');
                 }
             });
-        });
+            const sections = Array.from(document.querySelectorAll('section[id]'));
+            const navLinks = Array.from(document.querySelectorAll('.header__nav-link'));
+            const mobileNavLinks = Array.from(document.querySelectorAll('.header__mobile-nav-link'));
+            const allNavLinks = navLinks.concat(mobileNavLinks);
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.header__nav-link');
-            const mobileNavLinks = document.querySelectorAll('.header__mobile-nav-link');
-            
             const updateActiveLink = () => {
                 let currentSection = '';
-                
-                sections.forEach(section => {
+
+                sections.forEach((section) => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    
-                    // Se a seção está na viewport
-                    if (window.pageYOffset >= sectionTop - 200 && window.pageYOffset < sectionTop + sectionHeight - 200) {
-                        currentSection = section.getAttribute('id');
+                    if (window.scrollY >= sectionTop - 220 && window.scrollY < sectionTop + sectionHeight - 220) {
+                        currentSection = section.getAttribute('id') || '';
                     }
                 });
-                
-                // Atualizar links desktop
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + currentSection) {
-                        link.classList.add('active');
-                    }
+
+                allNavLinks.forEach((link) => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
                 });
-                
-                // Atualizar links mobile
-                mobileNavLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + currentSection) {
-                        link.classList.add('active');
+            };
+
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    updateActiveLink();
+                    ticking = false;
+                });
+            }, { passive: true });
+            updateActiveLink();
+
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.config({ nullTargetWarn: false });
+
+            const toArray = gsap.utils.toArray;
+
+            const reveal = (targets, trigger, options = {}) => {
+                const normalizedTargets = Array.isArray(targets) ? targets.join(',') : targets;
+                const items = toArray(normalizedTargets);
+                if (!items.length) return;
+
+                gsap.set(items, {
+                    autoAlpha: 0,
+                    y: options.y ?? 36,
+                    x: options.x ?? 0,
+                    scale: options.scale ?? 1,
+                    rotateZ: options.rotate ?? 0,
+                    force3D: true,
+                    willChange: 'transform, opacity'
+                });
+
+                gsap.to(items, {
+                    autoAlpha: 1,
+                    y: 0,
+                    x: 0,
+                    scale: 1,
+                    rotateZ: 0,
+                    duration: options.duration ?? 0.85,
+                    stagger: options.stagger ?? 0.1,
+                    ease: options.ease ?? 'power2.out',
+                    clearProps: 'will-change,transform,opacity,visibility',
+                    scrollTrigger: {
+                        trigger: trigger || items[0],
+                        start: options.start || 'top 82%',
+                        once: true
                     }
                 });
             };
-            
-            window.addEventListener('scroll', updateActiveLink);
-            updateActiveLink(); // Chamar uma vez no carregamento
-        });
-    </script>
-    <script type="module" src="./assets/textType.js"></script>
-    <script>
-        // Initialize text type animation for location section
-        function initLocalizacaoAnimation() {
-            const titleElement = document.querySelector('.localizacao__title[data-text-type]');
-            const localizacaoSection = document.getElementById('localizacao');
 
-            if (titleElement && localizacaoSection && typeof TextType !== 'undefined') {
-                const textToType = titleElement.getAttribute('data-text-type');
-                console.log('Inicializando TextType com:', textToType);
-                
-                // Clear any existing content
-                titleElement.innerHTML = '';
-                
-                const textTypeInstance = new TextType(titleElement, {
-                    text: textToType,
-                    typingSpeed: parseInt(titleElement.getAttribute('data-typing-speed')) || 40,
-                    pauseDuration: parseInt(titleElement.getAttribute('data-pause-duration')) || 3000,
-                    showCursor: titleElement.getAttribute('data-show-cursor') !== 'false',
-                    loop: false,
-                    startOnVisible: true, // Iniciar apenas quando a seção estiver visível
-                    onAnimationComplete: () => {
-                        console.log('Animação completa!');
-                        // Remove typing mode class and add complete class
-                        localizacaoSection.classList.remove('localizacao--typing-mode');
-                        localizacaoSection.classList.add('localizacao--typing-complete');
-                    }
+            const revealWords = (selector, options = {}) => {
+                toArray(selector).forEach((el) => {
+                    if (!el || el.dataset.gsapWords === '1') return;
+                    const text = (el.textContent || '').replace(/\s+/g, ' ').trim();
+                    if (!text) return;
+
+                    const words = text.split(' ');
+                    const fragment = document.createDocumentFragment();
+                    words.forEach((word, idx) => {
+                        const wrap = document.createElement('span');
+                        const inner = document.createElement('span');
+                        wrap.style.display = 'inline-block';
+                        wrap.style.overflow = 'hidden';
+                        wrap.style.verticalAlign = 'bottom';
+                        inner.style.display = 'inline-block';
+                        inner.className = 'gsap-word-item';
+                        inner.textContent = word;
+                        wrap.appendChild(inner);
+                        fragment.appendChild(wrap);
+                        if (idx < words.length - 1) fragment.appendChild(document.createTextNode(' '));
+                    });
+
+                    el.textContent = '';
+                    el.appendChild(fragment);
+                    el.dataset.gsapWords = '1';
+
+                    const wordItems = el.querySelectorAll('.gsap-word-item');
+                    gsap.set(wordItems, {
+                        yPercent: 120,
+                        autoAlpha: 0,
+                        force3D: true,
+                        willChange: 'transform, opacity'
+                    });
+
+                    gsap.to(wordItems, {
+                        yPercent: 0,
+                        autoAlpha: 1,
+                        duration: options.duration ?? 0.75,
+                        stagger: options.stagger ?? 0.045,
+                        ease: options.ease ?? 'power3.out',
+                        clearProps: 'will-change,transform,opacity,visibility',
+                        scrollTrigger: {
+                            trigger: options.trigger || el,
+                            start: options.start || 'top 84%',
+                            once: true
+                        }
+                    });
                 });
-            } else {
-                console.log('Elementos não encontrados ou TextType não definido');
-            }
-        }
+            };
 
-        // Wait for DOM to be ready or use DOMContentLoaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initLocalizacaoAnimation);
-        } else {
-            initLocalizacaoAnimation();
-        }
+            const enableTilt = (selector, intensity = 10) => {
+                const cleanups = [];
+                toArray(selector).forEach((el) => {
+                    if (!el || el.dataset.gsapTilt === '1') return;
+                    el.dataset.gsapTilt = '1';
+                    let rect = el.getBoundingClientRect();
+                    const setRotateX = gsap.quickTo(el, 'rotationX', { duration: 0.35, ease: 'power3.out' });
+                    const setRotateY = gsap.quickTo(el, 'rotationY', { duration: 0.35, ease: 'power3.out' });
+                    const setY = gsap.quickTo(el, 'y', { duration: 0.35, ease: 'power3.out' });
+
+                    el.style.transformStyle = 'preserve-3d';
+
+                    const onMove = (event) => {
+                        const px = (event.clientX - rect.left) / rect.width - 0.5;
+                        const py = (event.clientY - rect.top) / rect.height - 0.5;
+                        setRotateY(px * intensity);
+                        setRotateX(py * -intensity);
+                        setY(-4);
+                    };
+
+                    const onEnter = () => {
+                        rect = el.getBoundingClientRect();
+                        el.style.willChange = 'transform';
+                    };
+
+                    const onLeave = () => {
+                        setRotateX(0);
+                        setRotateY(0);
+                        setY(0);
+                        gsap.delayedCall(0.4, () => {
+                            if (!el.matches(':hover')) el.style.willChange = '';
+                        });
+                    };
+
+                    el.addEventListener('pointerenter', onEnter);
+                    el.addEventListener('pointermove', onMove);
+                    el.addEventListener('pointerleave', onLeave);
+
+                    cleanups.push(() => {
+                        el.removeEventListener('pointerenter', onEnter);
+                        el.removeEventListener('pointermove', onMove);
+                        el.removeEventListener('pointerleave', onLeave);
+                        delete el.dataset.gsapTilt;
+                        gsap.set(el, { clearProps: 'transform,will-change' });
+                    });
+                });
+
+                return () => cleanups.forEach((cleanup) => cleanup());
+            };
+
+            const enableMagnetic = (selector, distance = 8) => {
+                const cleanups = [];
+                toArray(selector).forEach((el) => {
+                    if (!el || el.dataset.gsapMagnetic === '1') return;
+                    el.dataset.gsapMagnetic = '1';
+                    let rect = el.getBoundingClientRect();
+                    const setX = gsap.quickTo(el, 'x', { duration: 0.3, ease: 'power2.out' });
+                    const setY = gsap.quickTo(el, 'y', { duration: 0.3, ease: 'power2.out' });
+
+                    const onMove = (event) => {
+                        const rx = (event.clientX - rect.left) / rect.width - 0.5;
+                        const ry = (event.clientY - rect.top) / rect.height - 0.5;
+                        setX(rx * distance);
+                        setY(ry * distance);
+                    };
+
+                    const onEnter = () => {
+                        rect = el.getBoundingClientRect();
+                        el.style.willChange = 'transform';
+                    };
+
+                    const onLeave = () => {
+                        setX(0);
+                        setY(0);
+                        gsap.delayedCall(0.35, () => {
+                            if (!el.matches(':hover')) el.style.willChange = '';
+                        });
+                    };
+
+                    el.addEventListener('pointerenter', onEnter);
+                    el.addEventListener('pointermove', onMove);
+                    el.addEventListener('pointerleave', onLeave);
+
+                    cleanups.push(() => {
+                        el.removeEventListener('pointerenter', onEnter);
+                        el.removeEventListener('pointermove', onMove);
+                        el.removeEventListener('pointerleave', onLeave);
+                        delete el.dataset.gsapMagnetic;
+                        gsap.set(el, { clearProps: 'transform,will-change' });
+                    });
+                });
+
+                return () => cleanups.forEach((cleanup) => cleanup());
+            };
+
+            const animateHeroStats = () => {
+                toArray('.hero__stat-number').forEach((el) => {
+                    const original = (el.textContent || '').trim();
+                    const hasPlus = original.startsWith('+');
+                    const hasPercent = original.includes('%');
+                    const hasGrouping = original.includes('.');
+                    const endValue = Number((original.match(/\d+/g) || []).join(''));
+                    if (!endValue) return;
+
+                    const counter = { value: 0 };
+                    gsap.to(counter, {
+                        value: endValue,
+                        duration: 1.25,
+                        ease: 'power2.out',
+                        onUpdate: () => {
+                            const rounded = Math.round(counter.value);
+                            const formatted = hasGrouping ? rounded.toLocaleString('pt-BR') : String(rounded);
+                            el.textContent = `${hasPlus ? '+' : ''}${formatted}${hasPercent ? '%' : ''}`;
+                        }
+                    });
+                });
+            };
+
+            const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+            heroTl
+                .from('.hero__background-image', { scale: 1.08, duration: 1.35, transformOrigin: '50% 35%' }, 0)
+                .from('.hero__background-overlay', { autoAlpha: 0, duration: 0.9 }, 0)
+                .from('.hero__badge', { y: 24, autoAlpha: 0, duration: 0.55 }, 0.15)
+                .from('.hero__title', { y: 38, autoAlpha: 0, duration: 0.7 }, 0.24)
+                .from('.hero__subtitle', { y: 24, autoAlpha: 0, duration: 0.58 }, 0.34)
+                .fromTo(
+                    '.hero__actions .hero__btn',
+                    { y: 18, autoAlpha: 0 },
+                    { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, immediateRender: false, clearProps: 'opacity,visibility,transform' },
+                    0.45
+                )
+                .from('.hero__stats .hero__stat, .hero__stats .hero__stat-divider', { y: 14, autoAlpha: 0, stagger: 0.05, duration: 0.42 }, 0.55)
+                .from('.hero__image', { x: 34, autoAlpha: 0, duration: 0.82 }, 0.3)
+                .from('.hero__scroll-indicator', { y: 18, autoAlpha: 0, duration: 0.45 }, 0.9);
+            heroTl.add(() => animateHeroStats(), 0.56);
+
+            // Garantia visual: evita estado travado em opacity 0 nos CTAs do hero
+            gsap.set('.hero__actions .hero__btn', { autoAlpha: 1 });
+
+            gsap.to('.hero__scroll-indicator', { y: -10, duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+            gsap.to('.hero__scroll-wheel', { y: 6, autoAlpha: 0.35, duration: 1.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+            gsap.to('.sobre__badge', { y: -6, rotate: -1.4, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+            gsap.to('.sobre__splash-image', { y: -10, rotate: 2.2, duration: 3.4, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+            gsap.to('.depoimentos__arara', { y: -12, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+            gsap.to('.whatsapp-float__button', { y: -6, duration: 1.9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+            revealWords('.sobre__title', { trigger: '#sobre', start: 'top 84%', stagger: 0.05 });
+            revealWords('.marcas__title', { trigger: '#marcas', start: 'top 84%', stagger: 0.05 });
+            revealWords('.beneficios__title', { trigger: '#beneficios', start: 'top 84%', stagger: 0.05 });
+            revealWords('.depoimentos__title', { trigger: '#depoimentos', start: 'top 84%', stagger: 0.05 });
+            revealWords('.faq__title', { trigger: '#faq', start: 'top 84%', stagger: 0.05 });
+            revealWords('.localizacao__title', { trigger: '#localizacao', start: 'top 84%', stagger: 0.05 });
+
+            reveal('.sobre__image-wrapper', '#sobre', { x: -30, y: 34, scale: 0.96, duration: 1.0 });
+            reveal(['.sobre__subtitle', '.sobre__text', '.sobre__btn'], '#sobre', { y: 28, stagger: 0.09 });
+            reveal('.sobre__feature', '#sobre', { x: 20, y: 18, stagger: 0.07, start: 'top 74%' });
+
+            reveal('.produtos__content > *:not(.produtos__title)', '#produtos', { y: 30, stagger: 0.08 });
+            reveal('.produtos__card', '#produtos', { y: 24, scale: 0.97, rotate: -1.1, stagger: 0.06, start: 'top 76%' });
+
+            reveal(['.marcas__tag', '.marcas__subtitle'], '#marcas', { y: 24, stagger: 0.08 });
+            reveal('.logoloop__item', '#marcas', { y: 18, scale: 0.96, stagger: 0.04, start: 'top 80%' });
+
+            reveal(['.beneficios__tag', '.beneficios__subtitle'], '#beneficios', { y: 26, stagger: 0.08 });
+            reveal('.beneficios__card', '#beneficios', { y: 28, scale: 0.97, rotate: -0.8, stagger: 0.08, start: 'top 78%' });
+
+            reveal(['.depoimentos__tag', '.depoimentos__subtitle'], '#depoimentos', { y: 24, stagger: 0.08 });
+            reveal('.depoimentos__grid', '#depoimentos', { y: 22, scale: 0.98, start: 'top 74%' });
+            reveal('.depoimentos__cta-wrapper', '#depoimentos', { y: 20, scale: 0.98, start: 'top 72%' });
+
+            const depoTrack = document.querySelector('.depoimentos__carousel-track');
+            const depoViewport = document.querySelector('.depoimentos__grid');
+            if (depoTrack && depoViewport) {
+                gsap.set(depoTrack, { xPercent: 0, force3D: true, willChange: 'transform' });
+
+                const marqueeDuration = window.innerWidth < 768 ? 72 : 60;
+                const marqueeTween = gsap.to(depoTrack, {
+                    xPercent: -50,
+                    ease: 'none',
+                    duration: marqueeDuration,
+                    repeat: -1,
+                    paused: true
+                });
+
+                ScrollTrigger.create({
+                    trigger: '#depoimentos',
+                    start: 'top 88%',
+                    end: 'bottom top',
+                    onEnter: () => marqueeTween.play(),
+                    onEnterBack: () => marqueeTween.play(),
+                    onLeave: () => marqueeTween.pause(),
+                    onLeaveBack: () => marqueeTween.pause()
+                });
+
+                depoViewport.addEventListener('mouseenter', () => marqueeTween.pause());
+                depoViewport.addEventListener('mouseleave', () => marqueeTween.play());
+                depoViewport.addEventListener('touchstart', () => marqueeTween.pause(), { passive: true });
+                depoViewport.addEventListener('touchend', () => marqueeTween.play(), { passive: true });
+            }
+
+            reveal(['.faq__tag', '.faq__subtitle'], '#faq', { y: 24, stagger: 0.08 });
+            reveal('.faq__item', '#faq', { x: 20, y: 22, stagger: 0.08, start: 'top 78%' });
+            reveal('.faq__cta', '#faq', { y: 20, scale: 0.98, start: 'top 74%' });
+
+            reveal(['.localizacao__tag', '.localizacao__text'], '#localizacao', { y: 24, stagger: 0.08 });
+            reveal('.localizacao__item', '#localizacao', { x: 18, y: 20, stagger: 0.08, start: 'top 78%' });
+            reveal('.localizacao__map', '#localizacao', { y: 22, scale: 0.98, duration: 0.9, start: 'top 78%' });
+
+            reveal(['.cta-final__tag', '.cta-final__title', '.cta-final__text'], '#contato', { y: 28, stagger: 0.08 });
+            reveal('.cta-final__benefit', '#contato', { x: 16, y: 18, stagger: 0.07, start: 'top 78%' });
+            reveal('.cta-final__form-wrapper', '#contato', { y: 22, scale: 0.98, duration: 0.9, start: 'top 78%' });
+
+            reveal('.footer__logo-wrapper, .footer__nav, .footer__hours-card, .footer__bottom', '#footer', { y: 24, stagger: 0.1, start: 'top 86%' });
+
+            const mm = gsap.matchMedia();
+            mm.add('(min-width: 992px) and (pointer: fine)', () => {
+                const cleanupTiltBenefits = enableTilt('.beneficios__card', 8);
+                const cleanupTiltProducts = enableTilt('.produtos__card', 7);
+                const cleanupTiltTestimonials = enableTilt('.depoimentos__card', 5);
+                const cleanupMagnetic = enableMagnetic('.hero__btn, .header__cta, .sobre__btn, .produtos__btn, .depoimentos__cta-btn, .faq__cta-btn, .cta-final__form-submit', 7);
+
+                const heroSection = document.querySelector('#hero');
+                const heroContent = document.querySelector('.hero__content');
+                const heroVisual = document.querySelector('.hero__image-wrapper');
+                if (!heroSection || !heroContent || !heroVisual) {
+                    return () => {
+                        cleanupTiltBenefits();
+                        cleanupTiltProducts();
+                        cleanupTiltTestimonials();
+                        cleanupMagnetic();
+                    };
+                }
+
+                const moveContentX = gsap.quickTo(heroContent, 'x', { duration: 0.45, ease: 'power3.out' });
+                const moveContentY = gsap.quickTo(heroContent, 'y', { duration: 0.45, ease: 'power3.out' });
+                const moveVisualX = gsap.quickTo(heroVisual, 'x', { duration: 0.45, ease: 'power3.out' });
+                const moveVisualY = gsap.quickTo(heroVisual, 'y', { duration: 0.45, ease: 'power3.out' });
+
+                const resetHeroPointer = () => {
+                    moveContentX(0);
+                    moveContentY(0);
+                    moveVisualX(0);
+                    moveVisualY(0);
+                };
+
+                const onPointerMove = (event) => {
+                    const rect = heroSection.getBoundingClientRect();
+                    if (event.clientY < rect.top || event.clientY > rect.bottom) {
+                        resetHeroPointer();
+                        return;
+                    }
+                    const px = event.clientX / window.innerWidth - 0.5;
+                    const py = event.clientY / window.innerHeight - 0.5;
+                    moveContentX(px * -10);
+                    moveContentY(py * -6);
+                    moveVisualX(px * 14);
+                    moveVisualY(py * 10);
+                };
+
+                window.addEventListener('pointermove', onPointerMove, { passive: true });
+                window.addEventListener('pointerleave', resetHeroPointer);
+
+                return () => {
+                    window.removeEventListener('pointermove', onPointerMove);
+                    window.removeEventListener('pointerleave', resetHeroPointer);
+                    resetHeroPointer();
+                    cleanupTiltBenefits();
+                    cleanupTiltProducts();
+                    cleanupTiltTestimonials();
+                    cleanupMagnetic();
+                };
+            });
+
+            toArray('.hero__background-image, .produtos__background-image, .cta-final__bg-image, .footer__background-image').forEach((bg) => {
+                const trigger = bg.closest('section, footer') || bg;
+                gsap.fromTo(
+                    bg,
+                    { y: -16 },
+                    {
+                        y: 16,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1.1
+                        }
+                    }
+                );
+            });
+
+            window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+        });
     </script>
 
 
 </body>
 </html>
+

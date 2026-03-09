@@ -3,6 +3,30 @@
    Script principal de inicializacao
    ===================================================== */
 
+/* ===== CSS IMPORTS ===== */
+import '../styles/tailwind.css';
+import '../styles/variables.css';
+import '../styles/reset.css';
+import '../styles/main.css';
+import '../styles/animations.css';
+import '../styles/textType.css';
+import '../styles/responsive.css';
+import '../components/common/Header/Header.css';
+import '../components/common/WhatsAppButton/WhatsAppButton.css';
+import '../components/sections/Beneficios/Beneficios.css';
+import '../components/sections/CTA/CTA.css';
+import '../components/sections/CTA/GradualBlur.css';
+import '../components/sections/Estatisticas/Estatisticas.css';
+import '../components/sections/FAQ/FAQ.css';
+import '../components/sections/Footer/Footer.css';
+import '../components/sections/Galeria/Galeria.css';
+import '../components/sections/Localizacao/Localizacao.css';
+import '../components/sections/Marcas/Marcas.css';
+import '../components/sections/Produtos/Produtos.css';
+import '../components/sections/Sobre/Sobre.css';
+import '../components/sections/Depoimentos/Depoimentos.css';
+/* Hero/Hero.css is imported inside Hero.js */
+
 import { initFAQ } from '../components/sections/FAQ/FAQ.js';
 import { initCTAForm } from '../components/sections/CTA/CTA.js';
 import TrueFocusAnimation from '../components/sections/Hero/Hero.js';
@@ -16,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initWhatsApp();
     initBlurText();
-    initLogoLoop();
     new TrueFocusAnimation('[data-animation="products"]');
     initFAQ();
     initCTAForm();
@@ -100,110 +123,6 @@ function initBlurText() {
     });
 }
 
-/* ===== LOGO LOOP (MARCAS) ===== */
-function initLogoLoop() {
-    const loops = document.querySelectorAll('.logoloop');
-    if (!loops.length) return;
-
-    loops.forEach(loop => {
-        const track = loop.querySelector('.logoloop__track');
-        const list = loop.querySelector('.logoloop__list');
-        if (!track || !list) return;
-
-        const speed = Number(loop.dataset.speed || 80);
-        const direction = loop.dataset.direction || 'left';
-        const pauseOnHover = loop.dataset.pauseOnHover !== 'false';
-
-        let rafId = null;
-        let lastTimestamp = null;
-        let offset = 0;
-        let listWidth = 0;
-        let isPaused = false;
-
-        const clearClones = () => {
-            track.querySelectorAll('.logoloop__list[data-clone="true"]').forEach(node => node.remove());
-        };
-
-        const updateClones = () => {
-            clearClones();
-            listWidth = list.getBoundingClientRect().width;
-            const containerWidth = loop.clientWidth;
-            if (!listWidth || !containerWidth) return;
-
-            const copiesNeeded = Math.ceil(containerWidth / listWidth) + 1;
-            for (let i = 0; i < copiesNeeded; i += 1) {
-                const clone = list.cloneNode(true);
-                clone.setAttribute('data-clone', 'true');
-                clone.setAttribute('aria-hidden', 'true');
-                track.appendChild(clone);
-            }
-
-            if (!rafId) {
-                startAnimation();
-            }
-        };
-
-        const animate = timestamp => {
-            if (lastTimestamp === null) lastTimestamp = timestamp;
-            const delta = Math.max(0, timestamp - lastTimestamp) / 1000;
-            lastTimestamp = timestamp;
-
-            if (listWidth > 0) {
-                const directionMultiplier = direction === 'right' ? -1 : 1;
-                const currentSpeed = isPaused ? 0 : speed;
-                offset += directionMultiplier * currentSpeed * delta;
-                offset = ((offset % listWidth) + listWidth) % listWidth;
-                track.style.transform = `translate3d(${-offset}px, 0, 0)`;
-            }
-
-            rafId = requestAnimationFrame(animate);
-        };
-
-        const startAnimation = () => {
-            if (rafId) cancelAnimationFrame(rafId);
-            lastTimestamp = null;
-            rafId = requestAnimationFrame(animate);
-        };
-
-        if (pauseOnHover) {
-            loop.addEventListener('mouseenter', () => {
-                isPaused = true;
-            });
-            loop.addEventListener('mouseleave', () => {
-                isPaused = false;
-            });
-        }
-
-        if (window.ResizeObserver) {
-            const observer = new ResizeObserver(updateClones);
-            observer.observe(loop);
-            observer.observe(list);
-        } else {
-            window.addEventListener('resize', updateClones, { passive: true });
-        }
-
-        const images = list.querySelectorAll('img');
-        if (images.length === 0) {
-            updateClones();
-            return;
-        }
-
-        let remainingImages = images.length;
-        const handleImageLoad = () => {
-            remainingImages -= 1;
-            if (remainingImages === 0) updateClones();
-        };
-
-        images.forEach(img => {
-            if (img.complete) {
-                handleImageLoad();
-            } else {
-                img.addEventListener('load', handleImageLoad, { once: true });
-                img.addEventListener('error', handleImageLoad, { once: true });
-            }
-        });
-    });
-}
 
 /* ===== HEADER ===== */
 function initHeader() {

@@ -43,8 +43,9 @@
     <!-- Favicon (logo footer Floramazonia) -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo%20footer-BkChbuVV.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo%20footer-BkChbuVV.png">
-    <link rel="shortcut icon" href="./favicon.ico">
     <link rel="apple-touch-icon" href="./assets/logo%20footer-BkChbuVV.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="manifest" href="./manifest.json">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,7 +141,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('./src/assets/images/fundo-roxo (1).png') center/cover;
+            background: url('./src/assets/images/fundo-roxo.png') center/cover;
             opacity: 0.1;
         }
         
@@ -372,7 +373,7 @@
 
         .catalogo-separator {
             height: 32px;
-            background: url('./src/assets/images/fundo-roxo (1).png') center/cover no-repeat;
+            background: url('./src/assets/images/fundo-roxo.png') center/cover no-repeat;
             opacity: 1;
             box-shadow: none;
         }
@@ -660,6 +661,30 @@
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        .catalogo-card__price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin: -0.25rem 0 0.9rem;
+        }
+
+        .catalogo-card__price-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .catalogo-card__price-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5a1f6a;
+            line-height: 1;
         }
         
         .catalogo-card__cta {
@@ -4020,6 +4045,70 @@
             const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwou3KZnpkwzUTNwcsHqQKiZcpvE3fgOuAWrsWHXfP9jUDBImy9rQJX-30F8d_oHmg6tA/exec';
 
             const cart = new Map();
+            const PRICE_HIDDEN_SECTIONS = new Set(['mix']); // Família Toppings
+
+            function normalizeText(value) {
+                return String(value || '')
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, ' ')
+                    .trim();
+            }
+
+            function formatCurrency(value) {
+                return Number(value).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+            }
+
+            function getExactPriceKey(section, title, size) {
+                return `${section}|${normalizeText(title)}|${normalizeText(size)}`;
+            }
+
+            function getTitlePriceKey(section, title) {
+                return `${section}|${normalizeText(title)}`;
+            }
+
+            const PRICE_BY_EXACT = new Map([
+                [getExactPriceKey('acai', 'Açaí Premium', '1,5L'), 29.25],
+                [getExactPriceKey('acai', 'Açaí Premium', '4,5kg'), 91.25],
+                [getExactPriceKey('acai', 'Açaí Premium', '5,5kg'), 112.75],
+                [getExactPriceKey('gelato', 'Gelato Ninho', '1,5L'), 29.25],
+                [getExactPriceKey('gelato', 'Gelato Cupuaçú', '1,5L'), 29.25]
+            ]);
+
+            const PRICE_BY_TITLE = new Map([
+                [getTitlePriceKey('acai', 'Açaí Master c/ Mel'), 121.00],
+                [getTitlePriceKey('acai', 'Açaí Master Puro'), 121.00],
+                [getTitlePriceKey('gelato', 'Ninho Trufado com Nutella'), 137.50],
+                [getTitlePriceKey('gelato', 'Ninho Trufado Tradicional'), 137.50],
+                [getTitlePriceKey('gelato', 'Ferrero Rocher'), 137.50],
+                [getTitlePriceKey('gelato', 'Chocolate Belga'), 137.50],
+                [getTitlePriceKey('gelato', 'Morango Sensação Zero Açúcar'), 137.50],
+                [getTitlePriceKey('gelato', 'Gelato de Pistache'), 137.50],
+                [getTitlePriceKey('gelato', 'Gelato de Ninho'), 132.00],
+                [getTitlePriceKey('gelato', 'Gelato de Bacuri'), 132.00],
+                [getTitlePriceKey('gelato', 'Gelato de Nesquik'), 123.75],
+                [getTitlePriceKey('gelato', 'Delícia de Abacaxi'), 123.75],
+                [getTitlePriceKey('gelato', 'Gelato de Flocos'), 123.75],
+                [getTitlePriceKey('gelato', 'Gelato de Milho Verde'), 123.75],
+                [getTitlePriceKey('gelato', 'Gelato de Óreo'), 123.75],
+                [getTitlePriceKey('gelato', 'Gelato de Ovomaltine'), 123.75],
+                [getTitlePriceKey('gelato', 'Gelato de Unicórnio'), 123.50],
+                [getTitlePriceKey('gelato', 'Gelato de Cupuaçu'), 115.50]
+            ]);
+
+            function getUnitPrice(name, size, section) {
+                if (PRICE_HIDDEN_SECTIONS.has(section)) return null;
+
+                const exactKey = getExactPriceKey(section, name, size);
+                if (PRICE_BY_EXACT.has(exactKey)) return PRICE_BY_EXACT.get(exactKey);
+
+                const titleKey = getTitlePriceKey(section, name);
+                return PRICE_BY_TITLE.has(titleKey) ? PRICE_BY_TITLE.get(titleKey) : null;
+            }
 
             // ===== PESQUISA DE PRODUTOS =====
             const searchInput = document.getElementById('catalogoSearchInput');
@@ -4133,13 +4222,42 @@
             function getCartProducts() {
                 return [...cart.entries()]
                     .filter(([, i]) => i.qty > 0)
-                    .map(([, i]) => ({ nome: i.name, tamanho: i.size || '', quantidade: i.qty, linha: i.linha || 'mix' }));
+                    .map(([, i]) => {
+                        const unitPrice = typeof i.unitPrice === 'number' ? i.unitPrice : null;
+                        const subtotal = unitPrice !== null ? unitPrice * i.qty : null;
+                        return {
+                            nome: i.name,
+                            tamanho: i.size || '',
+                            quantidade: i.qty,
+                            linha: i.linha || 'mix',
+                            valor_unitario: unitPrice,
+                            valor_unitario_formatado: unitPrice !== null ? formatCurrency(unitPrice) : '',
+                            subtotal,
+                            subtotal_formatado: subtotal !== null ? formatCurrency(subtotal) : ''
+                        };
+                    });
             }
 
-            function getWhatsAppMessage() {
-                const lines = getCartProducts()
-                    .map(p => `• ${p.nome}${p.tamanho ? ` (${p.tamanho})` : ''}: ${p.quantidade} un.`);
-                return `Olá! Gostaria de solicitar orçamento com os seguintes itens:\n\n${lines.join('\n')}\n\nObrigado!`;
+            function getCartTotal(products = getCartProducts()) {
+                return products.reduce((sum, p) => (
+                    typeof p.subtotal === 'number' ? sum + p.subtotal : sum
+                ), 0);
+            }
+
+            function getWhatsAppMessage(products = getCartProducts()) {
+                const lines = products.map((p) => {
+                    const itemBase = `• ${p.nome}${p.tamanho ? ` (${p.tamanho})` : ''}: ${p.quantidade} un.`;
+                    if (typeof p.valor_unitario === 'number') {
+                        return `${itemBase} x ${p.valor_unitario_formatado} = ${p.subtotal_formatado}`;
+                    }
+                    return `${itemBase} (valor sob consulta)`;
+                });
+
+                const hasPrice = products.some((p) => typeof p.valor_unitario === 'number');
+                const total = getCartTotal(products);
+                const totalBlock = hasPrice ? `\n\n*Total estimado:* ${formatCurrency(total)}` : '';
+
+                return `Olá! Gostaria de solicitar orçamento com os seguintes itens:\n\n${lines.join('\n')}${totalBlock}\n\nObrigado!`;
             }
 
             // Toggle expand/collapse do card flutuante
@@ -4157,16 +4275,30 @@
                 const countEl = document.getElementById('orderCount');
                 const listEl = document.getElementById('orderList');
                 const btn = document.getElementById('orderWhatsAppBtn');
-                const total = [...cart.values()].reduce((s, i) => s + i.qty, 0);
-                if (total > 0) {
+                const itemCount = [...cart.values()].reduce((s, i) => s + i.qty, 0);
+                if (itemCount > 0) {
+                    const products = getCartProducts();
+                    const totalValue = getCartTotal(products);
+                    const hasAnyPrice = products.some((p) => typeof p.valor_unitario === 'number');
+
                     float.classList.add('is-visible');
                     float.setAttribute('aria-hidden', 'false');
-                    countEl.textContent = total === 1 ? '1 item' : `${total} itens`;
-                    listEl.innerHTML = [...cart.entries()]
-                        .filter(([, i]) => i.qty > 0)
-                        .map(([, i]) => `<div class="catalogo-order-float__item">${i.qty}x ${i.name} ${i.size ? `(${i.size})` : ''}</div>`)
+                    countEl.textContent = itemCount === 1 ? '1 item' : `${itemCount} itens`;
+                    if (hasAnyPrice) {
+                        countEl.textContent += ` • ${formatCurrency(totalValue)}`;
+                    }
+
+                    listEl.innerHTML = products
+                        .map((p) => {
+                            const title = `${p.quantidade}x ${p.nome}${p.tamanho ? ` (${p.tamanho})` : ''}`;
+                            const valueText = typeof p.valor_unitario === 'number'
+                                ? `${p.valor_unitario_formatado} un. • ${p.subtotal_formatado}`
+                                : 'Valor sob consulta';
+                            return `<div class="catalogo-order-float__item">${title} - ${valueText}</div>`;
+                        })
                         .join('');
-                    const message = getWhatsAppMessage();
+
+                    const message = getWhatsAppMessage(products);
                     btn.dataset.whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
                 } else {
                     float.classList.remove('is-visible');
@@ -4187,8 +4319,25 @@
                 const size = sizesEl.length ? Array.from(sizesEl).map(s => s.textContent.trim()).join(', ') : '';
                 const section = card.closest('.catalogo-section');
                 const linha = (section && section.id) ? section.id : 'mix';
+                const unitPrice = getUnitPrice(name, size, linha);
                 const key = getProductKey(name, size);
                 let qty = 0;
+
+                if (typeof unitPrice === 'number') {
+                    const priceEl = document.createElement('div');
+                    priceEl.className = 'catalogo-card__price';
+                    priceEl.innerHTML = `
+                        <span class="catalogo-card__price-label">Preço</span>
+                        <span class="catalogo-card__price-value">${formatCurrency(unitPrice)}</span>
+                    `;
+
+                    const sizesWrapper = card.querySelector('.catalogo-card__sizes');
+                    if (sizesWrapper) {
+                        sizesWrapper.insertAdjacentElement('afterend', priceEl);
+                    } else if (titleEl.parentNode) {
+                        titleEl.insertAdjacentElement('afterend', priceEl);
+                    }
+                }
 
                 const wrap = document.createElement('div');
                 wrap.className = 'catalogo-card__quantity-group';
@@ -4206,7 +4355,7 @@
                     qtyEl.textContent = qty;
                     minusBtn.disabled = qty <= 0;
                     if (qty > 0) {
-                        cart.set(key, { name, size, qty, linha });
+                        cart.set(key, { name, size, qty, linha, unitPrice });
                     } else {
                         cart.delete(key);
                     }
@@ -4237,7 +4386,19 @@
                 const url = document.getElementById('orderWhatsAppBtn').dataset.whatsappUrl;
                 if (!url) return;
                 const products = getCartProducts();
-                modalList.textContent = products.map(p => `${p.quantidade}x ${p.nome}${p.tamanho ? ' (' + p.tamanho + ')' : ''}`).join(' • ');
+                const totalValue = getCartTotal(products);
+                const hasAnyPrice = products.some((p) => typeof p.valor_unitario === 'number');
+                modalList.textContent = products
+                    .map((p) => {
+                        const title = `${p.quantidade}x ${p.nome}${p.tamanho ? ` (${p.tamanho})` : ''}`;
+                        return typeof p.valor_unitario === 'number'
+                            ? `${title} - ${p.subtotal_formatado}`
+                            : `${title} - valor sob consulta`;
+                    })
+                    .join(' • ');
+                if (hasAnyPrice) {
+                    modalList.textContent += ` • Total estimado: ${formatCurrency(totalValue)}`;
+                }
                 nomeInput.value = '';
                 telefoneInput.value = '';
                 modal.classList.add('is-open');
@@ -4271,11 +4432,14 @@
                 e.target.value = v;
             });
 
-            btnSubmit.addEventListener('click', async () => {
+            btnSubmit.addEventListener('click', () => {
                 const nome = nomeInput.value.trim();
                 const telefone = telefoneInput.value.trim();
                 const whatsappUrl = document.getElementById('orderWhatsAppBtn').dataset.whatsappUrl;
                 if (!whatsappUrl) return;
+                const products = getCartProducts();
+                const hasAnyPrice = products.some((p) => typeof p.valor_unitario === 'number');
+                const totalValue = hasAnyPrice ? getCartTotal(products) : null;
 
                 btnSubmit.disabled = true;
                 btnSubmit.textContent = 'Enviando...';
@@ -4283,23 +4447,31 @@
                 const payload = {
                     nome: nome || '(não informado)',
                     telefone: telefone || '(não informado)',
-                    produtos: getCartProducts()
+                    produtos: products,
+                    valor_total: totalValue,
+                    valor_total_formatado: totalValue !== null ? formatCurrency(totalValue) : ''
                 };
 
+                // Abre o WhatsApp imediatamente no gesto de clique para evitar bloqueio de popup.
+                const popup = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
                 if (GOOGLE_SCRIPT_URL) {
-                    try {
-                        await fetch(GOOGLE_SCRIPT_URL, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'text/plain' },
-                            body: JSON.stringify(payload)
-                        });
-                    } catch (err) {
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: JSON.stringify(payload),
+                        keepalive: true
+                    }).catch(() => {
                         // silenciado em produção
-                    }
+                    });
+                }
+
+                // Fallback caso o navegador bloqueie abertura em nova aba.
+                if (!popup) {
+                    window.location.href = whatsappUrl;
                 }
 
                 closeModal();
-                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
                 btnSubmit.disabled = false;
                 btnSubmit.textContent = 'Enviar e abrir WhatsApp';
             });

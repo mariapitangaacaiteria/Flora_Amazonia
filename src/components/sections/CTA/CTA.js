@@ -60,7 +60,7 @@ function initCTAForm() {
             whatsappMessage += `\n*Mensagem:*\n${mensagem}\n`;
         }
         
-        whatsappMessage += `\n---\n_Mensagem enviada pelo formulario do site_`;
+        whatsappMessage += `\n---\n_Mensagem enviada pelo formulário do site_`;
         
         // Codificar mensagem para URL
         const encodedMessage = encodeURIComponent(whatsappMessage);

@@ -67,8 +67,17 @@
 .logoloop__track {
     display: flex;
     align-items: center;
-    gap: var(--logoloop-gap);
-    will-change: transform;
+    width: max-content;
+    animation: logoloop-scroll 22s linear infinite;
+}
+
+.logoloop[data-pause-on-hover="true"]:hover .logoloop__track {
+    animation-play-state: paused;
+}
+
+@keyframes logoloop-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
 .logoloop__list {

@@ -1,107 +1,96 @@
 /**
- * True Focus Animation
- * Animação de foco blur nos textos "Açaí", "Gelato" e "Sorbet"
+ * Hero Rotating Words — GSAP
+ * Cicla os nomes dos produtos com animação de clip-path + glow
  */
 
+import './Hero.css';
+
 class TrueFocusAnimation {
-    constructor(selector = '[data-animation="products"]', options = {}) {
+    constructor(selector = '[data-animation="products"]') {
         this.container = document.querySelector(selector);
         if (!this.container) return;
 
-        // Configurações
-        this.animationDuration = options.animationDuration || 0.5; // segundos
-        this.pauseBetweenAnimations = options.pauseBetweenAnimations || 1; // segundos
-        this.blurAmount = options.blurAmount || 5; // px
-
-        // Estado
-        this.words = [];
-        this.wordRefs = [];
-        this.currentIndex = 0;
-        this.animationInterval = null;
-
-        this.init();
-    }
-
-    init() {
-        // Extrair palavras
-        this.words = Array.from(this.container.querySelectorAll('.focus-word')).map(el => el.textContent.trim());
-        this.wordRefs = Array.from(this.container.querySelectorAll('.focus-word'));
-
-        // Criar frame de animação
-        this.createFocusFrame();
-
-        // Iniciar animação
-        this.startAnimation();
-    }
-
-    createFocusFrame() {
-        const frame = document.createElement('div');
-        frame.className = 'focus-frame';
-        frame.style.opacity = '0';
-        frame.innerHTML = `
-            <span class="corner top-left"></span>
-            <span class="corner top-right"></span>
-            <span class="corner bottom-left"></span>
-            <span class="corner bottom-right"></span>
-        `;
-        this.container.appendChild(frame);
-        this.focusFrame = frame;
-    }
-
-    updateFocusFrame() {
-        if (this.currentIndex < 0 || this.currentIndex >= this.wordRefs.length) {
-            this.focusFrame.style.opacity = '0';
+        /* eslint-disable no-undef */
+        if (typeof gsap === 'undefined') {
+            console.warn('GSAP não encontrado — animação do hero desativada.');
             return;
         }
 
-        const wordEl = this.wordRefs[this.currentIndex];
-        const containerRect = this.container.getBoundingClientRect();
-        const wordRect = wordEl.getBoundingClientRect();
+        this.words  = Array.from(this.container.querySelectorAll('.rotating-word'));
+        if (this.words.length === 0) return;
 
-        // Calcular posição relativa ao container
-        const x = wordRect.left - containerRect.left;
-        const y = wordRect.top - containerRect.top;
-        const width = wordRect.width;
-        const height = wordRect.height;
+        this.current  = 0;
+        this.busy     = false;
+        this.timer    = null;
 
-        // Aplicar estilos com transição suave
-        this.focusFrame.style.transition = `all ${this.animationDuration}s ease`;
-        this.focusFrame.style.left = `${x}px`;
-        this.focusFrame.style.top = `${y}px`;
-        this.focusFrame.style.width = `${width}px`;
-        this.focusFrame.style.height = `${height}px`;
-        this.focusFrame.style.opacity = '1';
+        this._init();
+    }
 
-        // Remover classe blur de todos
-        this.wordRefs.forEach((el, index) => {
-            el.classList.remove('blur');
+    /* ─── setup ─────────────────────────────────────────── */
+    _init() {
+        // Todas as palavras começam invisíveis / deslocadas para baixo
+        gsap.set(this.words, {
+            opacity: 0,
+            y:       22,
+            scale:   1.06,
         });
 
-        // Adicionar blur aos não-ativos
-        this.wordRefs.forEach((el, index) => {
-            if (index !== this.currentIndex) {
-                el.classList.add('blur');
-            }
+        // Primeira palavra entra com atraso suave
+        gsap.to(this.words[0], {
+            opacity:  1,
+            y:        0,
+            scale:    1,
+            duration: 0.5,
+            ease:     'power3.out',
+            delay:    0.3,
+            onComplete: () => this._schedule(),
         });
     }
 
-    startAnimation() {
-        // Actualizar frame inicial
-        this.updateFocusFrame();
+    /* ─── ciclo ──────────────────────────────────────────── */
+    _schedule() {
+        this.timer = setTimeout(() => this._rotate(), 2000);
+    }
 
-        // Iniciar loop
-        this.animationInterval = setInterval(() => {
-            this.currentIndex = (this.currentIndex + 1) % this.words.length;
-            this.updateFocusFrame();
-        }, (this.animationDuration + this.pauseBetweenAnimations) * 1000);
+    _rotate() {
+        if (this.busy) return;
+        this.busy = true;
+
+        const outWord = this.words[this.current];
+        this.current  = (this.current + 1) % this.words.length;
+        const inWord  = this.words[this.current];
+
+        // Saída: sobe e desaparece
+        gsap.to(outWord, {
+            opacity:  0,
+            y:       -20,
+            scale:    0.94,
+            duration: 0.25,
+            ease:    'power2.in',
+        });
+
+        // Entrada: vem de baixo
+        gsap.fromTo(
+            inWord,
+            { opacity: 0, y: 20, scale: 1.06 },
+            {
+                opacity:  1,
+                y:        0,
+                scale:    1,
+                duration: 0.4,
+                ease:    'power3.out',
+                delay:    0.18,
+                onComplete: () => {
+                    this.busy = false;
+                    this._schedule();
+                },
+            }
+        );
     }
 
     destroy() {
-        if (this.animationInterval) {
-            clearInterval(this.animationInterval);
-        }
+        if (this.timer) clearTimeout(this.timer);
     }
 }
 
-// Exportado como módulo — inicialização feita em main.js
 export default TrueFocusAnimation;

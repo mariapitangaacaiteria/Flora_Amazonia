@@ -471,72 +471,32 @@
     }
 }
 
-/* ===== TRUE FOCUS ANIMATION ===== */
-.focus-container {
-    position: relative;
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: inherit;
-    line-height: inherit;
+/* ===== HERO ROTATING WORDS ===== */
+.hero__title-rotating {
+    display: grid;               /* palavras empilhadas na mesma célula  */
+    overflow: hidden;            /* corta o movimento fora dos limites   */
+    padding-bottom: 0.15em;      /* espaço para descenders (ç, g, p...)  */
+    margin-bottom: -0.15em;      /* compensa o padding no layout         */
 }
 
-.focus-word {
-    position: relative;
-    margin: 0 0.3em;
-    transition: filter 0.5s ease;
-    filter: blur(0px);
-    display: inline;
+.rotating-word {
+    grid-area: 1 / 1;
+    opacity: 0;
+    will-change: transform, opacity;
+    text-align: center;
 }
 
-.focus-word.blur {
-    filter: blur(5px);
-}
+/* Açaí — roxo da marca */
+.rotating-word:nth-child(1) { color: #c084fc; }
 
-.focus-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 2px solid #7B2D8E;
-    border-radius: 4px;
-    box-shadow: 
-        inset 0 0 20px rgba(123, 45, 142, 0.3),
-        0 0 20px rgba(123, 45, 142, 0.4),
-        0 0 40px rgba(123, 45, 142, 0.2);
-    pointer-events: none;
-    z-index: 10;
-}
+/* Gelato — creme dourado */
+.rotating-word:nth-child(2) { color: #f5c97a; }
 
-.focus-frame .corner {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border: 2px solid #7B2D8E;
-}
+/* Sorbet — vermelho melancia */
+.rotating-word:nth-child(3) { color: #fc5c7d; }
 
-.focus-frame .corner.top-left {
-    top: -2px;
-    left: -2px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.focus-frame .corner.top-right {
-    top: -2px;
-    right: -2px;
-    border-left: none;
-    border-bottom: none;
-}
-
-.focus-frame .corner.bottom-left {
-    bottom: -2px;
-    left: -2px;
-    border-right: none;
-    border-top: none;
-}
-
-.focus-frame .corner.bottom-right {
-    bottom: -2px;
-    right: -2px;
-    border-left: none;
-    border-top: none;
+@media (min-width: 1024px) {
+    .rotating-word {
+        text-align: left;
+    }
 }
