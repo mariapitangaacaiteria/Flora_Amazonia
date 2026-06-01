@@ -621,6 +621,20 @@
       .whatsapp-float__button {
         animation: none !important;
       }
+      /* Fix: faixa decorativa do topo (linha-floramazonia) nao cobre mais o cabecalho */
+      .depoimentos__content {
+        padding-top: calc(50px + 2rem);
+      }
+      @media (min-width: 768px) {
+        .depoimentos__content {
+          padding-top: calc(65px + 2rem);
+        }
+      }
+      @media (min-width: 1024px) {
+        .depoimentos__content {
+          padding-top: calc(80px + 2rem);
+        }
+      }
     </style>
   </head>
   <body>
@@ -667,9 +681,6 @@
             <li class="header__nav-item">
               <a href="#sobre" class="header__nav-link">Sobre</a>
             </li>
-            <li class="header__nav-item">
-              <a href="#beneficios" class="header__nav-link">Benefícios</a>
-            </li>
             <li class="header__nav-item header__nav-item--has-dropdown">
               <a
                 href="#produtos"
@@ -688,6 +699,9 @@
                   >
                 </li>
               </ul>
+            </li>
+            <li class="header__nav-item">
+              <a href="#beneficios" class="header__nav-link">Benefícios</a>
             </li>
             <li class="header__nav-item">
               <a href="#depoimentos" class="header__nav-link">Depoimentos</a>
@@ -738,11 +752,6 @@
             <li class="header__mobile-nav-item">
               <a href="#sobre" class="header__mobile-nav-link">Sobre</a>
             </li>
-            <li class="header__mobile-nav-item">
-              <a href="#beneficios" class="header__mobile-nav-link"
-                >Benefícios</a
-              >
-            </li>
             <li
               class="header__mobile-nav-item header__mobile-nav-item--has-submenu"
             >
@@ -759,6 +768,11 @@
                   >
                 </li>
               </ul>
+            </li>
+            <li class="header__mobile-nav-item">
+              <a href="#beneficios" class="header__mobile-nav-link"
+                >Benefícios</a
+              >
             </li>
             <li class="header__mobile-nav-item">
               <a href="#depoimentos" class="header__mobile-nav-link"
@@ -3045,10 +3059,10 @@
             <ul class="footer__nav-list">
               <li><a href="#hero" class="footer__nav-link">Início</a></li>
               <li><a href="#sobre" class="footer__nav-link">Sobre</a></li>
+              <li><a href="#produtos" class="footer__nav-link">Produtos</a></li>
               <li>
                 <a href="#beneficios" class="footer__nav-link">Benefícios</a>
               </li>
-              <li><a href="#produtos" class="footer__nav-link">Produtos</a></li>
               <li>
                 <a href="#depoimentos" class="footer__nav-link">Depoimentos</a>
               </li>

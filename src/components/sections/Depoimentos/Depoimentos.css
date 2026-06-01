@@ -89,8 +89,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem 0;
+    /* padding-top reserva espaco para a faixa decorativa do topo (.depoimentos__decoration--top) */
+    padding: calc(50px + 2rem) 0 2rem;
     background: linear-gradient(135deg, #f8f4fc 0%, #fff 50%, #f8f4fc 100%);
+}
+
+@media (min-width: 768px) {
+    .depoimentos__content {
+        padding-top: calc(65px + 2rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .depoimentos__content {
+        padding-top: calc(80px + 2rem);
+    }
 }
 
 /* ===== CONTAINER ===== */
