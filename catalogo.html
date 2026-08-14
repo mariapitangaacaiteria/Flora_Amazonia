@@ -1797,11 +1797,11 @@
         </div>
 
         <div class="catalogo-grid">
-          <!-- Sorbet de Morango -->
-          <div class="catalogo-card">
+          <!-- Sorbet de Morango (Em falta) -->
+          <div class="catalogo-card catalogo-card--esgotado">
             <div class="catalogo-card__image-wrapper">
-              <span class="catalogo-card__badge catalogo-card__badge--popular"
-                >Novo</span
+              <span class="catalogo-card__badge catalogo-card__badge--esgotado"
+                >Em falta</span
               >
               <img
                 src="https://i.imgur.com/7MXqXw1.png"
@@ -1847,11 +1847,11 @@
             </div>
           </div>
 
-          <!-- Sorbet de Manga -->
-          <div class="catalogo-card">
+          <!-- Sorbet de Manga (Em falta) -->
+          <div class="catalogo-card catalogo-card--esgotado">
             <div class="catalogo-card__image-wrapper">
-              <span class="catalogo-card__badge catalogo-card__badge--novo"
-                >Novo</span
+              <span class="catalogo-card__badge catalogo-card__badge--esgotado"
+                >Em falta</span
               >
               <img
                 src="https://i.imgur.com/7MXqXw1.png"
@@ -1897,11 +1897,11 @@
             </div>
           </div>
 
-          <!-- Sorbet de Pitaya (Em breve) -->
-          <div class="catalogo-card catalogo-card--soon">
+          <!-- Sorbet de Pitaya (Em falta) -->
+          <div class="catalogo-card catalogo-card--esgotado">
             <div class="catalogo-card__image-wrapper">
-              <span class="catalogo-card__badge catalogo-card__badge--novo"
-                >Em breve</span
+              <span class="catalogo-card__badge catalogo-card__badge--esgotado"
+                >Em falta</span
               >
               <img
                 src="https://i.imgur.com/7MXqXw1.png"
@@ -1916,7 +1916,7 @@
               <h3 class="catalogo-card__title">Sorbet de Pitaya</h3>
               <p class="catalogo-card__description">
                 Sorbet de pitaya com visual vibrante e sabor delicado.
-                Lançamento em breve.
+                Temporariamente em falta.
               </p>
             </div>
           </div>
@@ -4125,7 +4125,9 @@
         }
 
         document
-          .querySelectorAll(".catalogo-card:not(.catalogo-card--soon)")
+          .querySelectorAll(
+            ".catalogo-card:not(.catalogo-card--soon):not(.catalogo-card--esgotado)",
+          )
           .forEach((card, idx) => {
             const titleEl = card.querySelector(".catalogo-card__title");
             const sizesEl = card.querySelectorAll(".catalogo-card__size");
